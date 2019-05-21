@@ -1,0 +1,12 @@
+// Derived class SavingAccount derived from base class BankAccount
+class SavingAccount : public BankAccount
+{
+// Data member to store interest rate
+double interestRate;
+
+public:
+// Prototype of parameterized constructor
+SavingAccount(int, double);
+// Overloads insertion operator to display data
+friend ostream & operator <<(ostream &, const SavingAccount &);
+};// End of class SavingAccoun
