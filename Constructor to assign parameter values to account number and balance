@@ -1,0 +1,6 @@
+// Constructor to assign parameter values to account number and balance
+BankAccount::BankAccount(int acNo, double bal)
+{
+accountNumber = acNo;
+balance = bal;
+}//End of parameterized constructor
