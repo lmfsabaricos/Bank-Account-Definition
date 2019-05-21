@@ -1,0 +1,35 @@
+// main function definition
+int main()
+{
+// Creates an array of object pointer of size 6
+BankAccount *accounts[6];
+
+// Creates SavingAccounts objects using parameterized constructor
+// using anonymous object
+accounts[0] = new SavingAccount(111, 1000.0);
+accounts[1] = new SavingAccount(222, 2000.0);
+accounts[2] = new SavingAccount(333, 3000.0);
+
+// Displays SavingAccounts information using insertion operator
+cout<<"\n Saving Account \n";
+// Loops from 0 to 3 to display saving account information
+for(int c = 0; c < 3; c++)
+// Converts base class object to derived class pointer
+cout<<(*(SavingAccount *)accounts[c]);
+
+
+// Creates CheckingAccount objects using parameterized constructor
+// using anonymous object
+accounts[3] = new CheckingAccount(123, 1500.0);
+accounts[4] = new CheckingAccount(223, 2500.0);
+accounts[5] = new CheckingAccount(323, 3500.0);
+
+// Displays CheckingAccount information using insertion operator
+cout<<"\n Checking Account \n";
+// Loops from 3 to 6 to display CheckingAccount information
+for(int c = 3; c < 6; c++)
+// Converts base class object to derived class pointer
+cout<<(*(CheckingAccount *)accounts[c]);
+
+return 0;
+}// End of main function
