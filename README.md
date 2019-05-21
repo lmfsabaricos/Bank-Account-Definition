@@ -2,8 +2,4 @@ Hi Good Evening to everyone my name is Louis Sabaricos and I hope to be a future
 
 To run the software you need codeblocks you can use other compilers but I use mostly codeblocks
 
-Step 1;
-
-Step 2;
-
-Step 3;
+The steps on how to do it are already explained on the files from step 1 to 12 
