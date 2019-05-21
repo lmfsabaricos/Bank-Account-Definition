@@ -1,0 +1,7 @@
+// Parameterized constructor to pass account number and balance to base class
+// and assigns parameter values monthly fee and number of checks to data member
+CheckingAccount::CheckingAccount(int accNo, double bal, double mf, int numChe) : BankAccount(accNo, bal)
+{
+monthlyFee = mf;
+numberOfChecks = numChe;
+}// End of function
