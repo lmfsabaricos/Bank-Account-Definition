@@ -1,7 +1,0 @@
-// Parameterized constructor to pass account number and balance to base class
-// and assigns interest rate to its own data member
-SavingAccount::SavingAccount(int accNo, double bal, double intrest) : BankAccount(accNo, bal)
-{
-// Assigns the parameter interest value to data member
-interestRate = intrest;
-}// End of constructor
