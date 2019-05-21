@@ -1,0 +1,12 @@
+// Derived class CheckingAccount derived from base class BankAccount
+class ostream : public BankAccount
+{
+// Data members to store monthly fee and number of checks allowed
+double monthlyFee;
+int numberOfChecks;
+public:
+// Prototype of parameterized constructor
+CheckingAccount(int, double);
+// Overloads insertion operator to display data
+friend ostream & operator <<(ostream &, const CheckingAccount &);
+};// End of class ostream
