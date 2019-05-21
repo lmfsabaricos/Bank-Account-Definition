@@ -9,4 +9,4 @@ public:
 SavingAccount(int, double);
 // Overloads insertion operator to display data
 friend ostream & operator <<(ostream &, const SavingAccount &);
-};// End of class SavingAccoun
+};// End of class SavingAccount
