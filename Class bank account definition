@@ -1,0 +1,17 @@
+Include<iostream>
+using namespace std;
+
+// Base class BankAccount definition
+class BankAccount
+{
+// Data members to store account number and balance
+// Protected to make it available to derived class
+protected:
+int accountNumber;
+double balance;
+public:
+
+// Prototype of constructors
+BankAccount();
+BankAccount(int acNo, double bal);
+};// End of class BankAccount
