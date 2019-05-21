@@ -1,0 +1,6 @@
+/ Default constructor to set default values to account number and balance
+BankAccount::BankAccount()
+{
+accountNumber = 0;
+balance = 0.0;
+}// End of default constructor
