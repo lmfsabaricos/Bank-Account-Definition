@@ -1,0 +1,11 @@
+/ Overloads insertion operator to display Checking Account information
+ostream & operator <<(ostream &ou, const CheckingAccount &ca)
+{
+// Writes account information to out object of ostream
+ou<<"Account Number: "<<ca.accountNumber<<"\t Balance: "<<ca.balance
+<<"\t Monthly Fees: "<<ca.monthlyFee<<"\t Number of checks allowed per month: "
+<<ca.numberOfChecks<<endl;
+
+// Returns the ostream object
+return ou;
+}// End of function
