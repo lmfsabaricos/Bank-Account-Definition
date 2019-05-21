@@ -1,0 +1,146 @@
+#include<iostream>
+using namespace std;
+
+// Base class BankAccount definition
+class BankAccount
+{
+// Data members to store account number and balance
+// Protected to make it available to derived class
+protected:
+int accountNumber;
+double balance;
+public:
+
+// Prototype of constructors
+BankAccount();
+BankAccount(int acNo, double bal);
+};// End of class BankAccount
+
+
+// Default constructor to set default values to account number and balance
+BankAccount::BankAccount()
+{
+accountNumber = 0;
+balance = 0.0;
+}// End of default constructor
+
+// Constructor to assign parameter values to account number and balance
+BankAccount::BankAccount(int acNo, double bal)
+{
+accountNumber = acNo;
+balance = bal;
+}//End of parameterized constructor
+
+// Derived class SavingAccount derived from base class BankAccount
+class SavingAccount : public BankAccount
+{
+// Data member to store interest rate
+double interestRate;
+
+public:
+// Prototype of parameterized constructor
+SavingAccount(int, double);
+// Overloads insertion operator to display data
+friend ostream & operator <<(ostream &, const SavingAccount &);
+};// End of class SavingAccount
+
+// Parameterized constructor to pass account number and balance to base class
+// and assigns interest rate to its own data member
+SavingAccount::SavingAccount(int accNo, double bal, double intrest) : BankAccount(accNo, bal)
+{
+// Assigns the parameter interest value to data member
+interestRate = intrest;
+}// End of constructor
+
+// Overloads insertion operator to display Saving Account information
+ostream & operator <<(ostream &out, const SavingAccount &sa)
+{
+// Writes account information to out object of ostream
+out<<"Account Number: "<<sa.accountNumber<<"\t Balance: "
+<<sa.balance<<"\t Interest Rate: "<<sa.interestRate<<endl;
+
+// Returns the ostream object
+return out;
+}// End of function
+
+// Derived class CheckingAccount derived from base class BankAccount
+class ostream : public BankAccount
+{
+// Data members to store monthly fee and number of checks allowed
+double monthlyFee;
+int numberOfChecks;
+public:
+// Prototype of parameterized constructor
+CheckingAccount(int, double);
+// Overloads insertion operator to display data
+friend ostream & operator <<(ostream &, const CheckingAccount &);
+};// End of class ostream
+
+// Parameterized constructor to pass account number and balance to base class
+// and assigns parameter values monthly fee and number of checks to data member
+CheckingAccount::CheckingAccount(int accNo, double bal, double mf, int numChe) : BankAccount(accNo, bal)
+{
+monthlyFee = mf;
+numberOfChecks = numChe;
+}// End of function
+
+// Overloads insertion operator to display Checking Account information
+ostream & operator <<(ostream &ou, const CheckingAccount &ca)
+{
+// Writes account information to out object of ostream
+ou<<"Account Number: "<<ca.accountNumber<<"\t Balance: "<<ca.balance
+<<"\t Monthly Fees: "<<ca.monthlyFee<<"\t Number of checks allowed per month: "
+<<ca.numberOfChecks<<endl;
+
+// Returns the ostream object
+return ou;
+}// End of function
+
+// main function definition
+int main()
+{
+// Creates an array of object pointer of size 6
+BankAccount *accounts[6];
+
+// Creates SavingAccounts objects using parameterized constructor
+// using anonymous object
+accounts[0] = new SavingAccount(111, 1000.0);
+accounts[1] = new SavingAccount(222, 2000.0);
+accounts[2] = new SavingAccount(333, 3000.0);
+
+// Displays SavingAccounts information using insertion operator
+cout<<"\n Saving Account \n";
+// Loops from 0 to 3 to display saving account information
+for(int c = 0; c < 3; c++)
+// Converts base class object to derived class pointer
+cout<<(*(SavingAccount *)accounts[c]);
+
+
+// Creates CheckingAccount objects using parameterized constructor
+// using anonymous object
+accounts[3] = new CheckingAccount(123, 1500.0);
+accounts[4] = new CheckingAccount(223, 2500.0);
+accounts[5] = new CheckingAccount(323, 3500.0);
+
+// Displays CheckingAccount information using insertion operator
+cout<<"\n Checking Account \n";
+// Loops from 3 to 6 to display CheckingAccount information
+for(int c = 3; c < 6; c++)
+// Converts base class object to derived class pointer
+cout<<(*(CheckingAccount *)accounts[c]);
+
+return 0;
+}// End of main function
+
+
+Sample Output:
+
+Saving Account
+Account Number: 111 Balance: 1000 Interest Rate: 8
+Account Number: 222 Balance: 2000 Interest Rate: 7
+Account Number: 333 Balance: 3000 Interest Rate: 5
+
+Checking Account
+Account Number: 123 Balance: 1500 Monthly Fees: 12 Number of checks allowed per month: 3
+Account Number: 223 Balance: 2500 Monthly Fees: 8 Number of checks allowed per month: 6
+Account Number: 323 Balance: 3500 Monthly Fees: 14 Number of checks allowed per month: 3
