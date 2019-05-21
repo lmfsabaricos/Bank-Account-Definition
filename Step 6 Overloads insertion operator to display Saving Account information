@@ -1,0 +1,9 @@
+/ Overloads insertion operator to display Saving Account information
+ostream & operator <<(ostream &out, const SavingAccount &sa)
+{
+// Writes account information to out object of ostream
+out<<"Account Number: "<<sa.accountNumber<<"\t Balance: "
+<<sa.balance<<"\t Interest Rate: "<<sa.interestRate<<endl;
+// Returns the ostream object
+return out;
+}// End of function
